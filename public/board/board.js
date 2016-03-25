@@ -1,7 +1,8 @@
 var app = angular.module('pokemon.board',[]);
 
 app.controller('boardController', function($scope, gameDashboardFactory, boardFactory, userFactory, $window, $location, pokemonSocket, gameFactory) {
-  $scope.hello = 'hello testing testing';
+  
+
   $scope.facebookId = $window.localStorage.getItem('pokemon.facebookId');
   $scope.gameId = $window.localStorage.getItem('pokemon.gameId');
   $scope.playerName = $window.localStorage.getItem('pokemon.playerName');
@@ -179,6 +180,23 @@ app.controller('boardController', function($scope, gameDashboardFactory, boardFa
       });
   };
 
+  var sortPokemon = function(pokemonArray) {
+    var pokemonByColor = {
+      starter: [],
+      pink: [],
+      green:[],
+      blue: [],
+      red: [],
+      gold: []
+    };
+
+    for (var i = 0; i < pokemonArray.length; i++) {
+      var pokemon = pokemonArray[i];
+      pokemonByColor[pokemon.color].push(pokemon);
+    }
+
+    return pokemonByColor;
+  };
 
   var initialize = function() {
     boardFactory.boardInit($scope.gameId, $scope.facebookId)
@@ -186,6 +204,7 @@ app.controller('boardController', function($scope, gameDashboardFactory, boardFa
         // get board data from database
         // preprocessed to be an array 
         // calculate path data and path string
+        console.log('this is the data from the user', data.user);
         $scope.boardData = boardFactory.createBoardArray(data.board);
         $scope.pathData = boardFactory.createPath($scope.boardData);
         $scope.pathString = boardFactory.createPathString($scope.pathData);
@@ -197,8 +216,27 @@ app.controller('boardController', function($scope, gameDashboardFactory, boardFa
         $scope.playerPosition = $scope.userPosition - 1;
 
         $scope.allPlayers = data.allUsers;
+
+        $scope.userParty = sortPokemon(data.user.party);
+
       });
   };
+
+  $scope.togglePanel = function() {
+    console.log('togglepanel')
+    if ($scope.toggle) {
+      $scope.right = {"right": '-400px'};
+      $scope.rightButton = {"right": '0px'};
+      $scope.toggle = false;
+    }else{
+      $scope.right = {right: '0px'};
+      $scope.rightButton = {right: '255px'};
+      $scope.toggle = true;
+
+    }
+  };
+
+  $scope.toggle = false;
 
   // these should probably be initialized at the same time as board above
   $scope.playerList = []; // what is this used for???

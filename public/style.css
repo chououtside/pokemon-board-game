@@ -43,3 +43,118 @@ input {
     -ms-transform: rotate(19deg);      /* to support IE 9 */
     transform: rotate(19deg);
 }
+
+/*Pokemon Player Panel Styles*/
+.user-panel {
+  display: inline-block;
+  position: absolute;
+  right: -400px;
+  height: 600px;
+  opacity: 1;
+  /*background-color: linen;*/
+ -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+  line-height:20px;
+  padding:10px;
+  border:1px solid black;
+  color: darkslateblue;
+  width: 20%;
+  background-image: url('http://cliparwolf.com/images/yellow-background/yellow-background-05.jpg');
+
+}
+
+.slider-button {
+  right: 0;
+  display: inline-block;
+  z-index: 4;
+  position: absolute;
+ -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+
+}
+
+.party {
+  max-height: 10%;
+}
+
+.party green {
+
+}
+
+.pokemon {
+  display: inline-block;
+  margin: 0 2%;
+}
+
+.pokemonName {
+  text-align: center;
+}
+/*
+.pokemon starter {
+    border: #333;
+    border-style: solid;
+    border-radius: 50%;
+    width: 4%;
+    background-color: #00B8FF;
+    ;
+    color: black;
+}
+
+.pokemon blue {
+    border: #333;
+    border-style: solid;
+    border-radius: 50%;
+    width: 5%;
+    height: 5%;
+    background-color: rgba(0, 20, 255, 0.94);
+}
+
+.pokemon red {
+    border: #333;
+    border-style: solid;
+    border-radius: 50%;
+    width: 5%;
+    background-color: #FF0000;
+}
+
+
+.pokemon green {   border: #333;
+    border-style: solid;
+    border-radius: 50%;
+    width: 4%;
+    background-color: green;
+}
+
+.pokemon pink {
+    border: #333;
+    border-style: solid;
+    border-radius: 50%;
+    width: 4%;
+    background-color: rgb(255, 0, 141);
+}
+
+*/
+
+.map {
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.dice-view {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  background-color: red;
+  height: 600px;
+}
+
+svg {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
